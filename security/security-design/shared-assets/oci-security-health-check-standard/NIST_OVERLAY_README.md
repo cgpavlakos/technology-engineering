@@ -7,6 +7,10 @@ The same mapping data supports two workflows:
 - Live report generation against OCI.
 - Offline overlay generation from an existing CIS report directory or `.zip`.
 
+## Disclaimer
+
+This branch is not official Oracle software, is not supported by Oracle Support, and has not been reviewed or approved as an Oracle release. It is an experimental working copy intended for evaluation, discussion, and validation of a possible NIST mapping overlay workflow. Review the code, outputs, and mappings before using them for audit, compliance, ATO, or customer-facing reporting.
+
 ## Get Started / Basic Usage
 
 Download this branch as a zip:
