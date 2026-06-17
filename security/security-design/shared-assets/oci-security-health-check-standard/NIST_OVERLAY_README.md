@@ -7,6 +7,43 @@ The same mapping data supports two workflows:
 - Live report generation against OCI.
 - Offline overlay generation from an existing CIS report directory or `.zip`.
 
+## Get Started / Basic Usage
+
+Download this branch as a zip:
+
+```bash
+wget https://github.com/cgpavlakos/technology-engineering/archive/refs/heads/cis-nist-overlay.zip \
+  -O technology-engineering-cis-nist-overlay.zip
+```
+
+Unzip it:
+
+```bash
+unzip -q technology-engineering-cis-nist-overlay.zip
+cd technology-engineering-cis-nist-overlay
+```
+
+Run online and generate a new NIST-only report for all subscribed regions:
+
+```bash
+cd security/security-design/shared-assets/oci-security-health-check-standard/files/oci-security-health-check-standard
+chmod +x standard.sh
+./standard.sh --cis '--nist-mappings'
+```
+
+Run offline and overlay an existing Ashburn CIS report zip:
+
+```bash
+cd security/security-design/shared-assets/oci-security-health-check-standard/files/oci-security-health-check-standard/scripts/cis_reports
+
+python3 nist_reports.py overlay \
+  --input /path/to/DEFAULT_YYYYMMDDHHMMSS_standard_us-ashburn-1.zip \
+  --nist-mappings \
+  --output /path/to/DEFAULT_YYYYMMDDHHMMSS_standard_us-ashburn-1_nist_overlay.zip
+```
+
+The offline overlay does not call OCI APIs or change the source zip. For an Ashburn overlay, use an existing CIS report package that was originally generated for `us-ashburn-1`.
+
 ## Files
 
 From the repository root, the implementation files are:
